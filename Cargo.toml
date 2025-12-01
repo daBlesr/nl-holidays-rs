@@ -2,6 +2,7 @@
 name = "nl_holidays"
 version = "0.1.0"
 edition = "2024"
+description = "Dutch holidays"
 repository = "https://github.com/daBlesr/nl-holidays-rs"
 keywords = ["holidays"]
 
