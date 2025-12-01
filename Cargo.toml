@@ -2,6 +2,8 @@
 name = "nl_holidays"
 version = "0.1.0"
 edition = "2024"
+repository = "https://github.com/daBlesr/nl-holidays-rs"
+keywords = ["holidays"]
 
 [dependencies]
 chrono = { version = "0.4.*", default-features = false }
