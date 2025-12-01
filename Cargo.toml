@@ -5,6 +5,7 @@ edition = "2024"
 description = "Dutch holidays"
 repository = "https://github.com/daBlesr/nl-holidays-rs"
 keywords = ["holidays"]
+license = "MIT"
 
 [dependencies]
 chrono = { version = "0.4.*", default-features = false }
