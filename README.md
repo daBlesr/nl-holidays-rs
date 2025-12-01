@@ -1,2 +1,3 @@
 # nl-holidays-rs
-Rust Holidays Netherlands
+Simple and small library for Dutch Holidays in Rust.
+This library does not take into account old governmental decisions.
