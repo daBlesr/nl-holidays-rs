@@ -1,7 +1,7 @@
 mod tests;
 
+use std::fmt::{Display, Formatter};
 use chrono::{Datelike, Duration, NaiveDate, Weekday};
-use crate::Holiday::Oudejaarsdag;
 
 /// Returns Easter Sunday for a given year (Gregorian calendar)
 fn paaszondag(year: i32) -> Option<NaiveDate> {
@@ -72,7 +72,7 @@ pub fn tweede_kerstdag(year: i32) -> Option<NaiveDate> {
     NaiveDate::from_ymd_opt(year, 12, 26)
 }
 
-#[derive(Debug, PartialEq, Clone, Copy)]
+#[derive(Debug, PartialEq, Clone, Copy, PartialOrd, Ord, Eq)]
 pub enum Holiday {
     PaasZondag,
     PaasMaandag,
@@ -86,6 +86,25 @@ pub enum Holiday {
     Bevrijdingsdag,
     EersteKerstdag,
     TweedeKerstdag,
+}
+
+impl Display for Holiday {
+    fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
+        f.write_str(match self {
+            Holiday::PaasZondag => "Paaszondag",
+            Holiday::PaasMaandag => "Paasmaandag",
+            Holiday::Hemelvaartsdag => "Hemelvaartsdag",
+            Holiday::GoedeVrijdag => "Goede Vrijdag",
+            Holiday::EerstePinksterdag => "Eerste Pinksterdag",
+            Holiday::TweedePinksterdag => "Tweede Pinksterdag",
+            Holiday::Koningsdag => "Koningsdag",
+            Holiday::Oudejaarsdag => "Oudejaarsdag",
+            Holiday::Nieuwjaarsdag => "Nieuwjaarsdag",
+            Holiday::Bevrijdingsdag => "Bevrijdingsdag",
+            Holiday::EersteKerstdag => "Eerste Kerstdag",
+            Holiday::TweedeKerstdag => "Tweede Kerstdag",
+        })
+    }
 }
 
 pub fn get_holiday(date: NaiveDate) -> Option<Holiday> {
@@ -111,7 +130,7 @@ pub fn get_holiday(date: NaiveDate) -> Option<Holiday> {
         return Some(Holiday::Koningsdag);
     }
     if oudejaarsdag(date.year()) == Some(date) {
-        return Some(Oudejaarsdag);
+        return Some(Holiday::Oudejaarsdag);
     }
     if nieuwjaarsdag(date.year()) == Some(date) {
         return Some(Holiday::Nieuwjaarsdag);
