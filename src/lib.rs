@@ -72,7 +72,7 @@ pub fn tweede_kerstdag(year: i32) -> Option<NaiveDate> {
     NaiveDate::from_ymd_opt(year, 12, 26)
 }
 
-#[derive(Debug, PartialEq, Clone, Copy, PartialOrd, Ord, Eq)]
+#[derive(Debug, PartialEq, Clone, Copy, PartialOrd, Ord, Eq, Hash)]
 pub enum Holiday {
     PaasZondag,
     PaasMaandag,
