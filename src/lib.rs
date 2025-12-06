@@ -2,6 +2,7 @@ mod tests;
 
 use std::fmt::{Display, Formatter};
 use chrono::{Datelike, Duration, NaiveDate, Weekday};
+use serde::{Deserialize, Serialize};
 
 /// Returns Easter Sunday for a given year (Gregorian calendar)
 fn paaszondag(year: i32) -> Option<NaiveDate> {
@@ -72,7 +73,7 @@ pub fn tweede_kerstdag(year: i32) -> Option<NaiveDate> {
     NaiveDate::from_ymd_opt(year, 12, 26)
 }
 
-#[derive(Debug, PartialEq, Clone, Copy, PartialOrd, Ord, Eq, Hash)]
+#[derive(Debug, PartialEq, Clone, Copy, PartialOrd, Ord, Eq, Hash, Serialize, Deserialize)]
 pub enum Holiday {
     PaasZondag,
     PaasMaandag,

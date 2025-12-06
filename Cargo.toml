@@ -1,6 +1,6 @@
 [package]
 name = "nl_holidays"
-version = "0.4.0"
+version = "0.5.0"
 edition = "2024"
 description = "Dutch holidays"
 repository = "https://github.com/daBlesr/nl-holidays-rs"
@@ -9,3 +9,4 @@ license = "MIT"
 
 [dependencies]
 chrono = { version = "0.4.*", default-features = false }
+serde = {version = "1.0.228", features = ["derive"]}
