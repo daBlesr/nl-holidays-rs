@@ -146,3 +146,22 @@ pub fn get_holiday(date: NaiveDate) -> Option<Holiday> {
     }
     None
 }
+
+impl Holiday {
+    pub fn all() -> [Holiday; 12] {
+        [
+            Holiday::PaasZondag,
+            Holiday::PaasMaandag,
+            Holiday::Hemelvaartsdag,
+            Holiday::GoedeVrijdag,
+            Holiday::EerstePinksterdag,
+            Holiday::TweedePinksterdag,
+            Holiday::Koningsdag,
+            Holiday::Oudejaarsdag,
+            Holiday::Nieuwjaarsdag,
+            Holiday::Bevrijdingsdag,
+            Holiday::EersteKerstdag,
+            Holiday::TweedeKerstdag,
+        ]
+    }
+}
